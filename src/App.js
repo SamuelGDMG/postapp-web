@@ -1,10 +1,12 @@
 import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
+import Routes from './routes/index'
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>PostApp</h1>
-    </div>
+    <BrowserRouter>
+      <Routes/>
+    </BrowserRouter>
   );
 }
 
