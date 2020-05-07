@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import { Button } from 'antd';
-import {Container, Content, AnimationContainer, Input} from './styles'
-import { UserOutlined } from '@ant-design/icons';
+import { Button, Input } from 'antd';
+import {Container, Content, AnimationContainer} from './styles'
+import { MailOutlined, LockOutlined } from '@ant-design/icons';
 
 const SignIn = () => {
     return (
@@ -10,9 +10,8 @@ const SignIn = () => {
         <Container>
             <Content>
                 <AnimationContainer>
-                    <UserOutlined/><Input name="name" placeholder="Nome"></Input>
-                    <Input name="email" placeholder="Email"></Input>
-                    <Input name="password" placeholder="Senha" type="password"></Input>
+                    <Input size="large" placeholder="Email" prefix={<MailOutlined />} />
+                    <Input.Password size="large" placeholder="Senha" prefix={<LockOutlined />} />
                     <Link to="/home"><Button danger>Ir para Home</Button></Link>
                 </AnimationContainer>
             </Content>
