@@ -1,7 +1,9 @@
 import React from 'react';
-import { Button, Input, Row } from 'antd';
-import {Container, AnimationContainer} from './styles'
-import { MailOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Input, Row, Dropdown, Menu } from 'antd';
+import {Container, AnimationContainer, Background} from './styles'
+import { MailOutlined, LockOutlined, UserOutlined, ToolOutlined, ArrowLeftOutlined, RocketOutlined, LaptopOutlined } from '@ant-design/icons';
+import './styles.less'
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
 
@@ -9,26 +11,52 @@ const SignUp = () => {
         e.preventDefault()
     }
 
+    const menu = (
+        <Menu style={{borderRadius: 5}}>
+          <Menu.Item key="1" icon={<LaptopOutlined />}>
+            Análise e Desenvolvimento de sistemas
+          </Menu.Item>
+          <Menu.Item key="2" icon={<RocketOutlined />}>
+            Mecatrônica
+          </Menu.Item>
+          <Menu.Item key="3" icon={<ToolOutlined />}>
+            Engenharia
+          </Menu.Item>
+        </Menu>
+      );
+
     return (
         <>
+        <Background>
         <Container>
                 <AnimationContainer>
                     <form onSubmit={handleSubmit}>
                         <Row>
-                            <Input style={{width: 300}} size="large" placeholder="Nome" prefix={<UserOutlined />} />
+                            <Input className="input" style={{width: 300}} size="large" placeholder="Nome" prefix={<UserOutlined />} />
                         </Row>
                         <Row>
-                            <Input style={{width: 300}} size="large" placeholder="Email" prefix={<MailOutlined />} />
+                            <Input className="input" style={{width: 300}} size="large" placeholder="Email" prefix={<MailOutlined />} />
                         </Row>
                         <Row>
-                            <Input.Password style={{width: 300}} size="large" placeholder="Senha" prefix={<LockOutlined />} />
+                            <Input.Password className="input" style={{width: 300}} size="large" placeholder="Senha" prefix={<LockOutlined />} />
                         </Row>
                         <Row style={{display: 'flex', justifyContent: 'center'}}>
-                            <Button type="primary" danger>Registrar-se</Button>
+                        <Dropdown  overlay={menu}>
+                            <Button shape="round" className="course-dropdown">
+                                Curso
+                            </Button>
+                        </Dropdown>
                         </Row>
+                        <Row style={{display: 'flex', justifyContent: 'center'}}>
+                            <Button shape="round" className="button" type="primary" danger>Registrar-se</Button>
+                        </Row>
+                        <Link className="link-to-login" to='/'>
+                            <h4 className="go-back-login"><ArrowLeftOutlined style={{paddingRight: 10}} />Voltar para o login</h4>
+                        </Link>
                     </form>
                 </AnimationContainer>
         </Container>
+        </Background>
         </>
     )
 }

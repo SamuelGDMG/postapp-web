@@ -1,4 +1,16 @@
 import styled, {keyframes} from 'styled-components'
+import backgroundImg from '../../images/background-login.jpg'
+
+export const Background = styled.div`
+background: url(${backgroundImg});
+height: 100%;
+width: 100%;
+opacity: 0.8;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+`;
 
 export const Container = styled.div`
 height: 100vh;
