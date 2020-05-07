@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, Dropdown, message } from 'antd';
 import { NavBar, Opcoes } from './style';
+import {AnimationContainer} from './style'
 
 import { FiLogOut } from 'react-icons/fi';
 
@@ -11,25 +12,23 @@ const Home = () => {
 
     return (
         <>
-            <NavBar>
-                <div>
+                    <AnimationContainer>
+                        <NavBar>
+                            <div>
 
-                </div>
+                            </div>
 
-                <div>
+                            <div>
 
-                </div>
+                            </div>
 
-                <Opcoes>
-                        <Dropdown overlay={menu}>
-                                <FiLogOut size={30}/>
-                        </Dropdown>
-                </Opcoes>
-
-
-            </NavBar>
-
-
+                            <Opcoes>
+                                    <Dropdown overlay={menu}>
+                                            <FiLogOut size={30}/>
+                                    </Dropdown>
+                            </Opcoes>
+                        </NavBar>
+                    </AnimationContainer>
         </>
     );
 

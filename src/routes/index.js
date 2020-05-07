@@ -6,9 +6,9 @@ import Home from '../pages/Home/index'
 
 const Routes = () => (
     <Switch>
-        <Route path="/home" exact component={SignIn}></Route>
+        <Route path="/" exact component={SignIn}></Route>
         <Route path="/signup" component={SignUp}></Route>
-        <Route path="/" component={Home}></Route>
+        <Route path="/home" component={Home}></Route>
     </Switch>
 )
 
