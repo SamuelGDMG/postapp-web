@@ -1,24 +1,33 @@
-import React, {useState} from 'react';
-import { Button, Input, Modal } from 'antd';
-import {Container, Content, AnimationContainer} from './styles'
-import { MailOutlined, LockOutlined } from '@ant-design/icons';
+import React from 'react';
+import { Button, Input, Row } from 'antd';
+import {Container, AnimationContainer} from './styles'
+import { MailOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
 
 const SignUp = () => {
-    const [visible, setVisible] = useState(false)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
     return (
         <>
         <Container>
-            <Content>
                 <AnimationContainer>
-                    <Input size="large" placeholder="Email" prefix={<MailOutlined />} />
-                    <Input.Password size="large" placeholder="Senha" prefix={<LockOutlined />} />
-                    <Button onClick={() => setVisible(true)} type="primary" danger>Ir para Home</Button>
-                    <Modal title="modal do samuel gay" visible={visible}><p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    </Modal>
+                    <form onSubmit={handleSubmit}>
+                        <Row>
+                            <Input style={{width: 300}} size="large" placeholder="Nome" prefix={<UserOutlined />} />
+                        </Row>
+                        <Row>
+                            <Input style={{width: 300}} size="large" placeholder="Email" prefix={<MailOutlined />} />
+                        </Row>
+                        <Row>
+                            <Input.Password style={{width: 300}} size="large" placeholder="Senha" prefix={<LockOutlined />} />
+                        </Row>
+                        <Row style={{display: 'flex', justifyContent: 'center'}}>
+                            <Button type="primary" danger>Registrar-se</Button>
+                        </Row>
+                    </form>
                 </AnimationContainer>
-            </Content>
         </Container>
         </>
     )
