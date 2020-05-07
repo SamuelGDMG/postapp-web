@@ -1,18 +1,26 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom'
-import { Form, Input, Button, Modal, Row, Col } from 'antd';
+import { Button, Input, Modal } from 'antd';
+import {Container, Content, AnimationContainer} from './styles'
+import { MailOutlined, LockOutlined } from '@ant-design/icons';
 
 const SignUp = () => {
-    const [isVisible, setIsVisible] = useState(false)
+    const [visible, setVisible] = useState(false)
     return (
-        <Row align="middle "  justify="center " style={{ padding: 12 }}>
-            <Col flex={1}>
-                <Link to="/"><Button type="primary" danger>Ir para Login</Button></Link>
-                <Button onClick={() => setIsVisible(true)}></Button>
-                {isVisible === true ? <Modal><p>AAAAAAAAAA</p></Modal> : null}
-            </Col>
-        
-    </Row>
+        <>
+        <Container>
+            <Content>
+                <AnimationContainer>
+                    <Input size="large" placeholder="Email" prefix={<MailOutlined />} />
+                    <Input.Password size="large" placeholder="Senha" prefix={<LockOutlined />} />
+                    <Button onClick={() => setVisible(true)} type="primary" danger>Ir para Home</Button>
+                    <Modal title="modal do samuel gay" visible={visible}><p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    </Modal>
+                </AnimationContainer>
+            </Content>
+        </Container>
+        </>
     )
 }
 

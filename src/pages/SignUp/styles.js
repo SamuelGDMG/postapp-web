@@ -14,10 +14,10 @@ align-items: center;
 width: 100%;
 `;
 
-const appearFromRight = keyframes`
+const appearFromLeft = keyframes`
 from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(-50px);
 }
 to {
     opacity: 1;
@@ -31,5 +31,5 @@ flex-direction: column;
 place-content: center;
 align-items: center;
 
-animation: ${appearFromRight} 1s;
+animation: ${appearFromLeft} 1s;
 `;
