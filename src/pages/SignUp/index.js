@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Button, Input, Row, Dropdown, Menu } from 'antd';
 import {Container, AnimationContainer, Background} from './styles'
 import { MailOutlined, LockOutlined, UserOutlined, ToolOutlined, ArrowLeftOutlined, RocketOutlined, LaptopOutlined } from '@ant-design/icons';
@@ -6,9 +6,18 @@ import './styles.less'
 import { Link } from 'react-router-dom';
 
 const SignUp = () => {
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('')
+    const [course, setCourse] = useState('Curso');
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        console.log(name)
+        console.log(email)
+        console.log(password)
+        console.log(course)
     }
 
     const menu = (
@@ -32,23 +41,23 @@ const SignUp = () => {
                 <AnimationContainer>
                     <form onSubmit={handleSubmit}>
                         <Row>
-                            <Input className="input" style={{width: 300}} size="large" placeholder="Nome" prefix={<UserOutlined />} />
+                            <Input onChange={(e) => setName(e.target.value)} className="input" style={{width: 300}} size="large" placeholder="Nome" prefix={<UserOutlined />} />
                         </Row>
                         <Row>
-                            <Input className="input" style={{width: 300}} size="large" placeholder="Email" prefix={<MailOutlined />} />
+                            <Input onChange={(e) => setEmail(e.target.value)} className="input" style={{width: 300}} size="large" placeholder="Email" prefix={<MailOutlined />} />
                         </Row>
                         <Row>
-                            <Input.Password className="input" style={{width: 300}} size="large" placeholder="Senha" prefix={<LockOutlined />} />
+                            <Input.Password onChange={(e) => setPassword(e.target.value)} className="input" style={{width: 300}} size="large" placeholder="Senha" prefix={<LockOutlined />} />
                         </Row>
                         <Row style={{display: 'flex', justifyContent: 'center'}}>
                         <Dropdown  overlay={menu}>
                             <Button shape="round" className="course-dropdown">
-                                Curso
+                                {course}
                             </Button>
                         </Dropdown>
                         </Row>
                         <Row style={{display: 'flex', justifyContent: 'center'}}>
-                            <Button shape="round" className="button" type="primary" danger>Registrar-se</Button>
+                            <Button onClick={handleSubmit} shape="round" className="button" type="primary" danger>Registrar-se</Button>
                         </Row>
                         <Link className="link-to-login" to='/'>
                             <h4 className="go-back-login"><ArrowLeftOutlined style={{paddingRight: 10}} />Voltar para o login</h4>
