@@ -20,9 +20,15 @@ const SignUp = () => {
         console.log(course)
     }
 
+    function handleMenuClick(e) {
+        if(e.key === 1){
+            setCourse('Analise e desenvolvimento de sistemas')
+        }
+    }
+
     const menu = (
-        <Menu style={{borderRadius: 5}}>
-          <Menu.Item key="1" icon={<LaptopOutlined />}>
+        <Menu >
+          <Menu.Item onClick={handleMenuClick} key="1" icon={<LaptopOutlined />}>
             Análise e Desenvolvimento de sistemas
           </Menu.Item>
           <Menu.Item key="2" icon={<RocketOutlined />}>

@@ -15,7 +15,7 @@ body{
 }
 
 body, input, button {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Jost', sans-serif;
     font-size: 16px;
 }
 
