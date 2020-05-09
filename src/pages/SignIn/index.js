@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Button, Input, Row } from 'antd';
 import {Container, AnimationContainer, Background} from './styles'
-import { MailOutlined, LockOutlined, UserOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { MailOutlined, LockOutlined, UserOutlined, ArrowRightOutlined, LoginOutlined } from '@ant-design/icons';
 import './styles.less'
 import { Link } from 'react-router-dom';
 
@@ -36,10 +36,10 @@ const SignIn = () => {
                         <Row style={{display: 'flex', justifyContent: 'center'}}>
                         </Row>
                         <Row style={{display: 'flex', justifyContent: 'center'}}>
-                            <Button onClick={handleSubmit} shape="round" className="button" type="primary" danger><Link to='/home'>Logar</Link></Button>
+                            <Button onClick={handleSubmit} shape="round" className="button" type="primary" danger><Link to='/home'><LoginOutlined style={{paddingRight: 10}} />Logar</Link></Button>
                         </Row>
                         <Link className="link-to-login" to='/signup'>
-                            <h4 className="go-back-login"><ArrowLeftOutlined style={{paddingRight: 10}} />Não tem conta? Cadastre-se</h4>
+                            <h4 className="go-back-login"><ArrowRightOutlined style={{paddingRight: 10}} />Não tem conta? Cadastre-se</h4>
                         </Link>
                     </form>
                 </AnimationContainer>
